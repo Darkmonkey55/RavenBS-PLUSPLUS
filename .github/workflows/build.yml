@@ -18,12 +18,13 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '17'
+          distribution: 'temurin'
       - name: Give Gradle wrapper execute permission
-        run: chmod +x gradlew  # This grants execute permission to gradlew
+        run: chmod +x gradlew
       - name: Build the mod
         run: ./gradlew build
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
           name: mod-jar
-          path: build/libs/*.jar  # Ensure this path is correct based on your build output
+          path: build/libs/*.jar
