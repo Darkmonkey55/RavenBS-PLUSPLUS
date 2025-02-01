@@ -18,11 +18,12 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '17'
+      - name: Give Gradle wrapper execute permission
+        run: chmod +x gradlew  # This grants execute permission to gradlew
       - name: Build the mod
         run: ./gradlew build
       - name: Upload build artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3  # Using v3 as intended
         with:
           name: mod-jar
           path: build/libs/*.jar
-
